@@ -13,7 +13,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] A concise and compelling elevator pitch
 - [x] Description of key features
 - [x] Description of how you will use each technology
-- [ ] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
+- [x] One or more rough sketches of your application. Images must be embedded in this file using Markdown image references.
 
 ### Elevator pitch
 
@@ -21,7 +21,8 @@ Fuel your reflexes with the Speed Cola Click Test, the ultimate reaction-speed c
 
 ### Design
 
-![Design image](placeholder.png)
+![IMG_0969 (1) (1)](https://github.com/user-attachments/assets/7a989457-ad1e-4254-8efb-c1c3e7588006)
+
 
 Here is a diagram for how the backend will store scores and display them to the user.
 
