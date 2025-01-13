@@ -26,31 +26,38 @@ Fuel your reflexes with the Speed Cola Click Test, the ultimate reaction-speed c
 
 ![Design image](placeholder.png)
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+Here is a diagram for how the backend will store scores and display them to the user.
 
 ```mermaid
 sequenceDiagram
     actor You
-    actor Website
-    You->>Website: Replace this with your design
+    actor Friend
+    You->>Server: Your reflex time
+    Friend->>Server: Friend reflex time
+    Server-->>Friend: Leaderboard for reflex times
+    Server-->>You: Leaderboard for reflex times
 ```
 
 ### Key features
 
-- Describe your key feature
-- Describe your key feature
-- Describe your key feature
+- Tracks exact reflex time down to milliseconds
+- Leaderboard scores and personal bests are persistently stored
+- Secure login system
+- Real-time notifications to all users when someone places on the leaderboard
 
 ### Technologies
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Description here
-- **CSS** - Description here
-- **React** - Description here
-- **Service** - Description here
-- **DB/Login** - Description here
-- **WebSocket** - Description here
+- **HTML** - Uses correct HTML structure for web application. Three HTML pages, one for login, one to play, and one to view the leaderboard.
+- **CSS** - Website styling that maintains functionality across different screen sizes and devices. Uses good spacing, color choices that resemble the theme of Speed Cola and good contrast.
+- **React** - React handles the login, calculating average reaction times, displaying the leaderboard, routing, and components.
+- **Service** - Backend service with endpoints for:
+  - login
+  - retrieving scores
+  - submitting scores
+- **DB/Login** - Store users, personal bests, and leaderboard scores in database. Register and login users. Credentials securely stored in database. Can't place on leaderboard unless authenticated.
+- **WebSocket** - As any user places on the leaderboard, their name is broadcast to other players.
 
 ## 🚀 AWS deliverable
 
