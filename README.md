@@ -2,7 +2,7 @@
 
 [My Notes](notes.md)
 
-In the popular Call of Duty: Black Ops franchise, players can drink "Speed-Cola" to increase their weapon handling times. This application will test users' reaction times in a game where they must click the screen as soon as it changes colors. The user will repeat the game three times to get an average reaction time at which point they can add their score to the global leaderboard if signed in. If they are fast enough, they will be given a message saying they have the Speed Cola perk!
+In the popular Call of Duty: Black Ops franchise, players can drink "Speed-Cola" to increase their speed. This application will test users' reaction times in a game where they must click the screen as soon as it changes colors. The user will repeat the game three times to get an average reaction time at which point they can add their score to the global leaderboard if signed in. If they are fast enough, they will be given a message saying they have the Speed Cola perk!
 
 
 ## 🚀 Specification Deliverable
