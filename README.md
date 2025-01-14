@@ -54,6 +54,7 @@ I am going to use the required technologies in the following ways.
   - login
   - retrieving scores
   - submitting scores
+  - Third-party API for logging what city a user is playing from (using IP address), which will be logged with their high score and broadcasted when they place on the leaderboard.
 - **DB/Login** - Store users, personal bests, and leaderboard scores in database. Register and login users. Credentials securely stored in database. Can't place on leaderboard unless authenticated.
 - **WebSocket** - As any user places on the leaderboard, their name is broadcast to other players.
 
