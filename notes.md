@@ -18,3 +18,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 
 ## Misc Notes
 The idea I have for this website is to be a reaction-speed test where you see how good your reflexes are. I learned that I should keep it simple from class.
+VIM: vi caddyFile -- same as nano. press i to go into insert/editing mode. esc takes you back to commmand mode. :w write :q quit
