@@ -68,15 +68,15 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **HTML pages** - I did not complete this part of the deliverable.
-- [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
-- [ ] **Links** - I did not complete this part of the deliverable.
-- [ ] **Text** - I did not complete this part of the deliverable.
-- [ ] **3rd party API placeholder** - I did not complete this part of the deliverable.
-- [ ] **Images** - I did not complete this part of the deliverable.
-- [ ] **Login placeholder** - I did not complete this part of the deliverable.
-- [ ] **DB data placeholder** - I did not complete this part of the deliverable.
-- [ ] **WebSocket placeholder** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - Four html pages that represent login, playing the game, seeing the leaderboard, and an about section.
+- [x] **Proper HTML element usage** - I used the correct <aside> tag for a section in the play.html file and I used headers and footers appropriately.
+- [x] **Links** - In the header there are in-app links and in the footer there is a link to my github.
+- [x] **Text** - I used different h tags and p tags to describe what was happening on the play and leaderboard pages. I also used bold and italics in both.
+- [x] **3rd party API placeholder** - On the leaderboard page, one of the columns will show what city a high score was achieved from.
+- [x] **Images** - I updated the site icon and added an image to the about page.
+- [x] **Login placeholder** - I used form tags correctly to format the login page structure.
+- [x] **DB data placeholder** - The leaderboard information will be stored in the database as well as personal bests.
+- [x] **WebSocket placeholder** - In the aside in the play.html file, there will be notifications pushed from the server when a player finishes a game and gets a time.
 
 ## 🚀 CSS deliverable
 
