@@ -47,7 +47,7 @@ sequenceDiagram
 
 I am going to use the required technologies in the following ways.
 
-- **HTML** - Uses correct HTML structure for web application. Three HTML pages, one for login, one to play, and one to view the leaderboard.
+- **HTML** - Uses correct HTML structure for web application. Four HTML pages, one for login, one to play, one about page, and one to view the leaderboard.
 - **CSS** - Website styling that maintains functionality across different screen sizes and devices. Uses good spacing, color choices that resemble the theme of Speed Cola and good contrast.
 - **React** - React handles the login, calculating average reaction times, displaying the leaderboard, routing, and components.
 - **Service** - Backend service with endpoints for:
@@ -68,7 +68,7 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **HTML pages** - I did not complete this part of the deliverable.
+- [x] **HTML pages** - I did not complete this part of the deliverable.
 - [ ] **Proper HTML element usage** - I did not complete this part of the deliverable.
 - [ ] **Links** - I did not complete this part of the deliverable.
 - [ ] **Text** - I did not complete this part of the deliverable.
