@@ -82,12 +82,12 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Header, footer, and main content body** - I did not complete this part of the deliverable.
-- [ ] **Navigation elements** - I did not complete this part of the deliverable.
-- [ ] **Responsive to window resizing** - I did not complete this part of the deliverable.
-- [ ] **Application elements** - I did not complete this part of the deliverable.
-- [ ] **Application text content** - I did not complete this part of the deliverable.
-- [ ] **Application images** - I did not complete this part of the deliverable.
+- [x] **Header, footer, and main content body** - I implemented Bootstrap header that is fully functional.
+- [x] **Navigation elements** - I changed the nav to be a bootstrap element and made it so that the active link is lighter.
+- [x] **Responsive to window resizing** - I used lots of flex boxes and percentages rather than fixed values to make my app responsive.
+- [x] **Application elements** - I used good contrast and kept with the Speed-Cola green theme throughout.
+- [x] **Application text content** - I have a custom font for the whole site that looks good. Purposefully changed the score font.
+- [x] **Application images** - I have my speed-cola icon placed in some good CSS.
 
 ## 🚀 React part 1: Routing deliverable
 
