@@ -5,20 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About</title>
     <link rel="icon" href="ingameIcon.ico" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="main.css"/>
   </head>
   <body>
-    <header>
-      <h1>The Speed-Cola Click Test</h1>
-      <nav>
-          <menu>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="play.html">Play</a></li>
-            <li><a href="leaderboard.html">Leaderboard</a></li>
-            <li><a href="about.html">About</a></li>
-          </menu>
+    <header class="bg-dark text-light">
+      <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html">
+            <img src="ingameIcon.ico" width="30"> The Speed-Cola Click Test
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="play.html">Play</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="leaderboard.html">Leaderboard</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="about.html">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </nav>
-      <hr />
-  </header>
+    </header>
 
     <main>
       <div id="picture" class="picture-box"><img width="200px" src="ingameIcon.ico" alt="random" /></div>
