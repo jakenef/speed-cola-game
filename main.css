@@ -1,4 +1,77 @@
 body {
+    display: flex;
+    flex-direction: column;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+main {
+    flex: 1 calc(95vh - 110px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5vh;
+    gap: 3vh;
+}
+
+.center-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2vh;
+}
+
+.card text-bg-success mb-3{
+    padding: 100px;
+}
+
+.navbar-brand {
+    padding-left: 0.3em;
+}
+  
+  menu .nav-item {
+    padding: 0 0.3em;
+}
+
+.custom-card {
+    display: flex;
+    flex: 0, 30px;
+    background-color: #1a5c15 !important; /* Custom blue */
+    color: white !important; /* Text color for contrast */
+    border-width: thick;
+    border-color: #3db531;
+}
+
+.custom-card .card-title {
+    font-size: 2rem !important; /* Make text bigger */
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    margin: 0;
+    padding: 10px;
+    background-color: #1a5c15;
+    color: white;
+    text-align: center;
+}
+
+.custom-button {
+    background-color: #1a5c15 !important; /* Custom green */
+    color: white !important; /* Text color for contrast */
+    border-color: #3db531 !important; /* Custom green */
+}
+
+@media (max-height: 400px) {
+    header {
+      display: none;
+    }
+    footer {
+      display: none;
+    }
+    main {
+      flex: 1 100vh;
+    }
+}
