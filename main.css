@@ -72,12 +72,34 @@ main {
     gap: 2vh;
 }
 
+td {
+    max-width: 40vw;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    flex: 1;
+  }
+
 .players, 
 .score-count {
     flex: 1; /* Makes both divs equal width */
-    min-width: 0; /* Prevents flex items from overflowing */
+    min-width: 25vh; /* Prevents flex items from overflowing */
     text-align: center; /* Centers text */
+    display: inline-block; /* Prevents divs from stacking */
 }
+
+.score-count {
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: bold;
+    color: #3db531;
+    cursor: default;
+    width: 50px;
+    height: 30px;
+    border-radius: 10px;
+    border: solid thin #3db531;
+    background-color: #1a5c15;
+  }
 
 footer {
     padding: 10px;
