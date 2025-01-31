@@ -13,7 +13,7 @@
     />
     <link rel="stylesheet" href="main.css"/>
 </head>
-<body>
+<body class="bg-dark text-light">
     <header class="bg-dark text-light">
         <nav class="navbar navbar-dark navbar-expand-lg bg-dark">
           <div class="container-fluid">
@@ -43,28 +43,30 @@
         </nav>
       </header>
 
-    <main>
-        <h1>When the screen shows an icon, click that one.</h1>
-        <h2>Tip: Don't click too early, or you'll have to restart.</h2>
-        <div class="players">
-            Player:
-            <span class="player-name">Mystery player</span>
+    <main class="container-fluid bg-dark text-center">
+        <div class="center-group">
+            <h1>When the screen shows an icon, click that one.</h1>
+            <h5>Tip: Don't click too early, or you'll have to restart.</h2>
+                <div class="centered-row" id="score">
+                    <div class="players">
+                        Player:
+                        <span class="player-name">Mystery player</span>
+                        </div>
+                    <div class="score-count">
+                    <label for="score-count">Time:</label>
+                    <input id="score-count" type="text" value="3.02 ms" readonly />
+                    </div>
+                </div>
+                <button id="again">Start Game</button>
         </div>
-        <div id="score">
-            <label for="score-count">Time:</label>
-            <input id="score-count" type="text" value="3.02 ms" readonly />
-        </div>
-        <div id="screen" style="display: flex; justify-content: center; align-items: center; width: 400px; height: 300px; background-color: black; border-radius: 25px; border: 10px solid #333; box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);">
-            <svg width="90%" height="80%" style="background-color: grey; border-radius: 10px; box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);"></svg>
-        </div>        
+               
         <div id="buttons">
             <button id="button1">🚘</button>
             <button id="button2">🍏</button>
             <button id="button3">🌼</button>
-            <hr />
-            <button id="again">Start Over?</button>
         </div>
         <aside>
+            <hr />
             <ul>
                 <!-- notifications -->
                 <li>1/30/25: playerName just got a <b>.123 ms</b> Speed-Cola Score!</li>
@@ -75,11 +77,11 @@
         </aside>
     </main>
 
-    <footer>
-        <hr />
-        <span class="text-reset">Jacob Nef</span>
-        <br />
-        <a href="https://github.com/jakenef/startup/tree/main">GitHub Repository</a>
-    </footer>
+    <footer class="bg-dark text-white-50">
+        <div class="container-fluid">
+          <span class="text-reset">Jacob Nef</span>
+          <a class="text-reset" href="https://github.com/jakenef/startup">Github</a>
+        </div>
+      </footer>
 </body>
 </html>
