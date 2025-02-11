@@ -32,16 +32,24 @@ export default function App() {
               <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
                   <li className="nav-item">
-                    <NavLink className='nav-link' to=''>Login</NavLink>
+                    <NavLink className="nav-link" to="/">
+                      Login
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className='nav-link' to='play'>Play</NavLink>
+                    <NavLink className="nav-link" to="play">
+                      Play
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className='nav-link' to='leaderboard'>Leaderboard</NavLink>
+                    <NavLink className="nav-link" to="leaderboard">
+                      Leaderboard
+                    </NavLink>
                   </li>
                   <li className="nav-item">
-                    <NavLink className='nav-link' to='about'>About</NavLink>
+                    <NavLink className="nav-link" to="about">
+                      About
+                    </NavLink>
                   </li>
                 </ul>
               </div>
@@ -49,7 +57,13 @@ export default function App() {
           </nav>
         </header>
 
-        <div classNameName="body bg-dark text-light">App will display here</div>
+        <Routes>
+          <Route path="/" element={<Login />} exact />
+          <Route path="/play" element={<Play />} />
+          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
 
         <footer className="bg-dark text-white-50">
           <div className="container-fluid">
@@ -62,8 +76,11 @@ export default function App() {
             </a>
           </div>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
       </div>
     </BrowserRouter>
   );
 }
+
+function NotFound() {
+    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
+  }
