@@ -21,7 +21,7 @@ export function Login() {
           <span className="input-group-text">🔒</span>
           <input className="form-control" type="password" placeholder="don't use password1" />
         </div>
-        <button type="submit" className="btn custom-button">Login</button>
+        <button type="submit" className="btn custom-button me-2">Login</button>
         <button type="button" className="btn btn-secondary">Create User</button>
       </form>
     </main>

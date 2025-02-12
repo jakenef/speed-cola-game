@@ -104,9 +104,12 @@ td {
 }
 
 footer {
-  position: absolute;
+  padding: 10px;
   bottom: 0;
+  left: 0;
   width: 100%;
+  margin: 0;
+  text-align: center;
 }
 
 .custom-button {
