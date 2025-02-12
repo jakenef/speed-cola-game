@@ -93,9 +93,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **Bundled using Vite** - I did not complete this part of the deliverable.
-- [ ] **Components** - I did not complete this part of the deliverable.
-- [ ] **Router** - Routing between login and voting components.
+- [x] **Bundled using Vite** - I bundled and debugged using Vite and npm run dev.
+- [x] **Components** - I set up login, about, play, and leaderboard. The navigation works. Everything works as it did in the old version without React.
+- [x] **Router** - I set up BrowserRouter and used the Navlinks to route and make my application an SPA.
 
 ## 🚀 React part 2: Reactivity
 
