@@ -13,11 +13,11 @@ export function Authenticated(props) {
 
   return (
     <div>
-      <div className='playerName'>{props.userName}</div>
-      <Button variant='custom-btn' onClick={() => navigate('/play')}>
+      <div style={{ marginBottom: "2rem" }} className='playerName'>Username: {props.userName?.split('@')[0]}</div>
+      <Button variant='btn custom-button me-2' onClick={() => navigate('/play')}>
         Play
       </Button>
-      <Button variant='secondary' onClick={() => logout()}>
+      <Button variant='btn btn-secondary' onClick={() => logout()}>
         Logout
       </Button>
     </div>

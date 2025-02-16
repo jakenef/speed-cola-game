@@ -1,6 +1,6 @@
 import React from "react";
 
-export function Leaderboard() {
+export function Leaderboard({ userName }) {
 
   const [timeScores, setTimeScores] = React.useState([]);
   React.useEffect(() => {
@@ -25,7 +25,7 @@ export function Leaderboard() {
   } else {
     scoreRows.push(
       <tr key='0'>
-        <td colSpan='4'>Be the first to score</td>
+        <td colSpan='5'>Be the first to score</td>
       </tr>
     );
   }
@@ -36,7 +36,7 @@ export function Leaderboard() {
         <div class="row justify-content-center">
           <div class="col-md-6 players">
             Player: {" "}
-            <span class="player-name">Mystery player</span>
+            <span class="player-name">{userName?.split('@')[0]}</span>
           </div>
         </div>
         <h3>Your personal best is:</h3>

@@ -77,7 +77,7 @@ export default function App() {
                 }}
               />} exact />
           <Route path="/play" element={<Play />} />
-          <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/leaderboard" element={<Leaderboard userName={userName}/>} />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
