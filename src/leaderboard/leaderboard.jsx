@@ -1,6 +1,35 @@
 import React from "react";
 
 export function Leaderboard() {
+
+  const [timeScores, setTimeScores] = React.useState([]);
+  React.useEffect(() => {
+    const timeScoresText = localStorage.getItem('timeScores');
+    if (timeScoresText) {
+      setTimeScores(JSON.parse(timeScoresText));
+    }
+  }, []);
+
+  const scoreRows = [];
+  if (timeScores.length) {
+    for (const [i, timeScore] of timeScores.entries()) {
+      scoreRows.push(
+        <tr key={i}>
+          <td>{i}</td>
+          <td>{timeScore.name.split('@')[0]}</td>
+          <td>{timeScore.score}</td>
+          <td>{timeScore.date}</td>
+        </tr>
+      );
+    }
+  } else {
+    scoreRows.push(
+      <tr key='0'>
+        <td colSpan='4'>Be the first to score</td>
+      </tr>
+    );
+  }
+
   return (
     <main class="container-fluid bg-dark text-center">
       <div class="container text-center">
@@ -28,29 +57,7 @@ export function Leaderboard() {
             <th>Date</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>1</td>
-            <td>도윤 이</td>
-            <td>1.02</td>
-            <td>Temecula, CA</td>
-            <td>May 20, 2021</td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Annie James</td>
-            <td>2.99</td>
-            <td>Provo, UT</td>
-            <td>June 2, 2021</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>Gunter Spears</td>
-            <td>7.55</td>
-            <td>Reno, NV</td>
-            <td>July 3, 2020</td>
-          </tr>
-        </tbody>
+        <tbody id='scores'>{scoreRows}</tbody>
       </table>
     </main>
   );
