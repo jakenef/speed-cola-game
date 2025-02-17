@@ -1,5 +1,9 @@
 # CS 260 Notes
 
+TODO: -fix click on logo/title 404
+-white background when scrolling too far down?
+-
+
 [My startup](https://simon.cs260.click)
 
 ## Helpful links

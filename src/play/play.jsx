@@ -1,6 +1,7 @@
 import React from "react";
+import { Players } from "./players";
 
-export function Play() {
+export function Play({ userName }) {
   return (
     <main class="container-fluid bg-dark text-center">
       <div class="center-group">
@@ -33,19 +34,7 @@ export function Play() {
           🍏
         </button>
       </div>
-      <div id="player-messages">
-        <div class="event">
-          <span class="player-event">lucyLoo44</span> got a time of{" "}
-          <b>17.3 ms!</b>
-        </div>
-        <div class="event">
-          <span class="player-event">Jonohere2</span> got a time of{" "}
-          <b>3.34 ms!</b>
-        </div>
-        <div class="event">
-          <span class="system-event">game</span> connected
-        </div>
-      </div>
+      <Players />
     </main>
   );
 }

@@ -13,7 +13,7 @@ export function Authenticated(props) {
 
   return (
     <div>
-      <div style={{ marginBottom: "2rem" }} className='playerName'>Username: {props.userName?.split('@')[0]}</div>
+      <h4 style={{ marginBottom: "2rem" }} className='playerName'>Player: {props.userName?.split('@')[0]}</h4>
       <Button variant='btn custom-button me-2' onClick={() => navigate('/play')}>
         Play
       </Button>
