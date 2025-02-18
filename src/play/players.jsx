@@ -1,24 +1,12 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { GameEvent, GameNotifier } from './gameNotifier';
 import './players.css';
 
 export function Players() {
-  React.useEffect(() => {
-    GameNotifier.addHandler(handleGameEvent);
-    //bug with the toast showing multiple times
-
-    return () => {
-      GameNotifier.removeHandler(handleGameEvent);
-    };
-  }, []);
-
-  function handleGameEvent(event) {
-    displayToast(event);
-  }
-
-  function displayToast(event) {
+  // Memoize the handler function to ensure the same reference is used
+  const handleGameEvent = useCallback((event) => {
     let message = 'Unknown event';
     if (event.type === GameEvent.End) {
       message = `${event.from.split('@')[0]} got a time of ${event.value.score} s`;
@@ -37,15 +25,20 @@ export function Players() {
       },
       hideProgressBar: true,
     });
-  }
+  }, []);
+
+  useEffect(() => {
+    GameNotifier.addHandler(handleGameEvent);
+
+    return () => {
+      GameNotifier.removeHandler(handleGameEvent);
+    };
+  }, [handleGameEvent]); // Ensure useEffect only depends on the memoized handleGameEvent
 
   return (
     <div className="players">
       {/* Toast container with custom position */}
-      <ToastContainer
-        autoClose={3000}
-        className="mobile-toast-container"
-      />
+      <ToastContainer autoClose={3000} className="mobile-toast-container" />
     </div>
   );
 }
