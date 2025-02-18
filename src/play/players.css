@@ -1,0 +1,11 @@
+
+  /* Mobile-specific styles */
+  @media (max-width: 768px) {
+    .mobile-toast-container {
+        position: top-center;
+      margin-top: 4rem; /* Push the toasts down beneath the header */
+      left: 50% !important; /* Ensure it's centered */
+      transform: translateX(-50%) !important;
+      width: auto !important; /* Adjust as needed */
+    }
+  }

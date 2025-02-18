@@ -23,7 +23,7 @@ const GameEvent = {
         const date = new Date().toLocaleDateString();
         const userName = 'bach0';
         this.broadcastEvent(userName, GameEvent.End, { name: userName, score: score, date: date });
-      }, 5000);
+      }, 10000);
     }
   
     broadcastEvent(from, type, value) {
