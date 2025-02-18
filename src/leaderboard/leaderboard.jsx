@@ -44,7 +44,7 @@ export function Leaderboard({ userName }) {
           <label for="score-count">-- ms</label>
         </div>
         <h3>
-          Beat 5.25 ms to prove you have the Speed-Cola perk in real life!
+          Beat 275 ms to prove you have the Speed-Cola perk in real life!
         </h3>
       </div>
       <table class="table table-light table-striped-columns">

@@ -9,7 +9,7 @@ export function Players() {
   const handleGameEvent = useCallback((event) => {
     let message = 'Unknown event';
     if (event.type === GameEvent.End) {
-      message = `${event.from.split('@')[0]} got a time of ${event.value.score} s`;
+      message = `${event.from.split('@')[0]} got a time of ${event.value.score} ms`;
     } else if (event.type === GameEvent.System) {
       message = event.value.msg;
     }

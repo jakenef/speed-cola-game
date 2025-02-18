@@ -35,17 +35,14 @@ export function SpeedGame({ userName }) {
 
   // Called when the Start/Reset button is clicked.
   const handleStartReset = () => {
-    if (isStarted) {
-      // If game is running, reset it.
-      resetGame();
-    } else {
+    
       // Start a new game.
       setIsStarted(true);
       setTrialCount(0);
       setReactionTimes([]);
       setFinalScore(null);
       startTrial();
-    }
+    
   };
 
   // Returns a random delay between 2000ms and 4000ms.
@@ -77,7 +74,7 @@ export function SpeedGame({ userName }) {
       // End the game.
       setIsStarted(false);
       setIsGreen(false);
-      setBackgroundImage("black");
+      setBackgroundImage("url('/gameOverCropped.jpg')");
     } else {
       // Otherwise, start the next trial.
       startTrial();
@@ -105,8 +102,9 @@ export function SpeedGame({ userName }) {
         className="btn btn-secondary btn-lg"
         onClick={handleStartReset}
         style={{ marginTop: "1rem", marginBottom: "1rem" }}
+        disabled={isStarted} // Add disabled attribute based on isStarted
       >
-        {isStarted ? "Reset" : "Start"}
+        Start
       </Button>
       <div
         className="screen"
