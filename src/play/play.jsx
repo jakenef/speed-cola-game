@@ -2,11 +2,11 @@ import React from "react";
 import { Players } from "./players";
 import { SpeedGame } from "./speedGame";
 
-export function Play({props}) {
+export function Play({userName}) {
   return (
     <main className="container-fluid bg-dark text-center">
       <div>
-      <SpeedGame />
+      <SpeedGame userName={userName} />
       <Players />
       </div>
     </main>

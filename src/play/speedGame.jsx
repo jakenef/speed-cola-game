@@ -2,21 +2,86 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { delay } from "./delay";
 
-export function SpeedGame({userName}) {
+export function SpeedGame({ userName }) {
   const [isStarted, setIsStarted] = useState(false);
+  const [isGreen, setIsGreen] = useState(false);
   const [backgroundImage, setBackgroundImage] = useState("black");
+  const [greenTimestamp, setGreenTimestamp] = useState(null);
+  const [trialCount, setTrialCount] = useState(0);
+  const [reactionTimes, setReactionTimes] = useState([]);
+  const [finalScore, setFinalScore] = useState(null);
 
+  // Resets the entire game state.
+  const resetGame = () => {
+    setIsStarted(false);
+    setIsGreen(false);
+    setBackgroundImage("black");
+    setGreenTimestamp(null);
+    setTrialCount(0);
+    setReactionTimes([]);
+    setFinalScore(null);
+  };
 
-  const handleStart = () => {
-    setIsStarted(true);
-    setBackgroundImage("url('/static.jpg')"); // Access directly from public folder
+  // Starts a new trial by showing the static image, then switching to the "green" image after a random delay.
+  const startTrial = () => {
+    setIsGreen(false);
+    setBackgroundImage("url('/static.jpg')"); // Show static screen
     delay(getRandomTime()).then(() => {
-      setBackgroundImage("url('/greenGo.jpg')"); // Access directly from public folder
+      setBackgroundImage("url('/greenGo.jpg')"); // Change to green screen
+      setIsGreen(true);
+      setGreenTimestamp(Date.now());
     });
   };
 
+  // Called when the Start/Reset button is clicked.
+  const handleStartReset = () => {
+    if (isStarted) {
+      // If game is running, reset it.
+      resetGame();
+    } else {
+      // Start a new game.
+      setIsStarted(true);
+      setTrialCount(0);
+      setReactionTimes([]);
+      setFinalScore(null);
+      startTrial();
+    }
+  };
+
+  // Returns a random delay between 2000ms and 4000ms.
   const getRandomTime = () => {
-    return Math.floor(Math.random() * 3000) + 2000; // Random time between 2 and 4 seconds
+    return Math.floor(Math.random() * 2000) + 2000;
+  };
+
+  // Called when the user clicks the "React!" button.
+  const handleReaction = () => {
+    // If clicked too early, alert and reset the game.
+    if (!isGreen) {
+      alert("Too soon! Restarting the game.");
+      resetGame();
+      return;
+    }
+
+    // Calculate the reaction time.
+    const reaction = Date.now() - greenTimestamp;
+    const newTrialCount = trialCount + 1;
+    setTrialCount(newTrialCount);
+    const newReactionTimes = [...reactionTimes, reaction];
+    setReactionTimes(newReactionTimes);
+
+    if (newTrialCount >= 3) {
+      // If this is the third trial, compute the average reaction time.
+      const sum = newReactionTimes.reduce((a, b) => a + b, 0);
+      const avg = Math.round(sum / newReactionTimes.length);
+      setFinalScore(avg);
+      // End the game.
+      setIsStarted(false);
+      setIsGreen(false);
+      setBackgroundImage("black");
+    } else {
+      // Otherwise, start the next trial.
+      startTrial();
+    }
   };
 
   return (
@@ -26,16 +91,22 @@ export function SpeedGame({userName}) {
         <h5>Tip: Don't click too early, or you'll have to restart.</h5>
         <div className="centered-row" id="score">
           <div className="players">
-            Player: {" "}
-            <span className="player-name">broken{userName?.split('@')[0]}</span>
+            Player:{" "}
+            <span className="player-name">{userName?.split("@")[0]}</span>
           </div>
           <div className="score-count">
-            <label for="score-count">-- ms</label>
+            <label htmlFor="score-count">
+              {finalScore !== null ? `${finalScore} ms` : "-- ms"}
+            </label>
           </div>
         </div>
       </div>
-      <Button className="btn btn-secondary btn-lg" onClick={handleStart} disabled={isStarted} style={{ marginTop: "1rem", marginBottom: "1rem" }}>
-        Start
+      <Button
+        className="btn btn-secondary btn-lg"
+        onClick={handleStartReset}
+        style={{ marginTop: "1rem", marginBottom: "1rem" }}
+      >
+        {isStarted ? "Reset" : "Start"}
       </Button>
       <div
         className="screen"
@@ -51,6 +122,15 @@ export function SpeedGame({userName}) {
           marginBottom: "1rem",
         }}
       ></div>
+      {isStarted && (
+        <Button
+          className="btn custom-button btn-lg"
+          onClick={handleReaction}
+          style={{ marginBottom: "1rem" }}
+        >
+          React!
+        </Button>
+      )}
     </div>
   );
 }
