@@ -17,7 +17,7 @@ export function Players() {
     // Display toast with custom styles
     toast(message, {
       style: {
-        backgroundColor: 'rgba(255, 255, 255, 0.9)', // Slight transparency
+        backgroundColor: 'rgba(255, 255, 255, 0.9)',
         color: 'black',
         boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
         borderRadius: '10px',
@@ -33,7 +33,7 @@ export function Players() {
     return () => {
       GameNotifier.removeHandler(handleGameEvent);
     };
-  }, [handleGameEvent]); // Ensure useEffect only depends on the memoized handleGameEvent
+  }, [handleGameEvent]);
 
   return (
     <div className="players">

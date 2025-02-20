@@ -20,10 +20,10 @@ export default function App() {
         <header className="bg-dark text-light">
           <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
             <div className="container-fluid">
-              <a className="navbar-brand" href="index.html">
-                <img src="ingameIcon.ico" width="30"></img> The Speed-Cola Click
+              <div className="navbar-brand">
+                <img src="speedcolaCropped.png" width="30"></img> The Speed-Cola Click
                 Test
-              </a>
+              </div>
               <button
                 className="navbar-toggler"
                 type="button"

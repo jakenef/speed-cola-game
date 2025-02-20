@@ -25,9 +25,9 @@ export function SpeedGame({ userName }) {
   // Starts a new trial by showing the static image, then switching to the "green" image after a random delay.
   const startTrial = () => {
     setIsGreen(false);
-    setBackgroundImage("url('/static.jpg')"); // Show static screen
+    setBackgroundImage("url('/static.jpg')");
     delay(getRandomTime()).then(() => {
-      setBackgroundImage("url('/greenGo.jpg')"); // Change to green screen
+      setBackgroundImage("url('/greenGo.jpg')");
       setIsGreen(true);
       setGreenTimestamp(Date.now());
     });

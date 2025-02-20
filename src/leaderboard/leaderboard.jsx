@@ -25,7 +25,7 @@ export function Leaderboard({ userName }) {
   } else {
     scoreRows.push(
       <tr key='0'>
-        <td colSpan='5'>Be the first to score</td>
+        <td colSpan='5'>Be the first to score!</td>
       </tr>
     );
   }
@@ -44,7 +44,7 @@ export function Leaderboard({ userName }) {
           <label for="score-count">-- ms</label>
         </div>
         <h3>
-          Beat 275 ms to prove you have the Speed-Cola perk in real life!
+          Beat 300 ms to prove you have the Speed-Cola perk in real life!
         </h3>
       </div>
       <table class="table table-light table-striped-columns">
