@@ -6,23 +6,26 @@ import { Login } from "./login/login";
 import { Play } from "./play/play";
 import { Leaderboard } from "./leaderboard/leaderboard";
 import { About } from "./about/about";
-import { AuthState } from './login/authState';
-
+import { AuthState } from "./login/authState";
 
 export default function App() {
-  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
-  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [userName, setUserName] = React.useState(
+    localStorage.getItem("userName") || ""
+  );
+  const currentAuthState = userName
+    ? AuthState.Authenticated
+    : AuthState.Unauthenticated;
   const [authState, setAuthState] = React.useState(currentAuthState);
 
   return (
-    <BrowserRouter>
-      <div className="body bg-dark text-light">
+    <div className="body bg-dark text-light">
+      <BrowserRouter>
         <header className="bg-dark text-light">
           <nav className="navbar navbar-dark navbar-expand-lg bg-dark">
             <div className="container-fluid">
               <div className="navbar-brand">
-                <img src="speedcolaCropped.png" width="30"></img> The Speed-Cola Click
-                Test
+                <img src="speedcolaCropped.png" width="30"></img> The Speed-Cola
+                Click Test
               </div>
               <button
                 className="navbar-toggler"
@@ -43,18 +46,18 @@ export default function App() {
                     </NavLink>
                   </li>
                   {authState === AuthState.Authenticated && (
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="play">
-                      Play
-                    </NavLink>
-                  </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="play">
+                        Play
+                      </NavLink>
+                    </li>
                   )}
                   {authState === AuthState.Authenticated && (
-                  <li className="nav-item">
-                    <NavLink className="nav-link" to="leaderboard">
-                      Leaderboard
-                    </NavLink>
-                  </li>
+                    <li className="nav-item">
+                      <NavLink className="nav-link" to="leaderboard">
+                        Leaderboard
+                      </NavLink>
+                    </li>
                   )}
                   <li className="nav-item">
                     <NavLink className="nav-link" to="about">
@@ -68,16 +71,25 @@ export default function App() {
         </header>
 
         <Routes>
-          <Route path="/" element={<Login
+          <Route
+            path="/"
+            element={
+              <Login
                 userName={userName}
                 authState={authState}
                 onAuthChange={(userName, authState) => {
                   setAuthState(authState);
                   setUserName(userName);
                 }}
-              />} exact />
-          <Route path="/play" element={<Play userName={userName}/>} />
-          <Route path="/leaderboard" element={<Leaderboard userName={userName}/>} />
+              />
+            }
+            exact
+          />
+          <Route path="/play" element={<Play userName={userName} />} />
+          <Route
+            path="/leaderboard"
+            element={<Leaderboard userName={userName} />}
+          />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
@@ -93,11 +105,15 @@ export default function App() {
             </a>
           </div>
         </footer>
-      </div>
-    </BrowserRouter>
+      </BrowserRouter>
+    </div>
   );
 }
 
 function NotFound() {
-    return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
-  }
+  return (
+    <main className="container-fluid bg-secondary text-center">
+      404: Return to sender. Address unknown.
+    </main>
+  );
+}

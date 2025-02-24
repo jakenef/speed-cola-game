@@ -5,7 +5,7 @@ import { delay } from "./delay";
 export function SpeedGame({ userName }) {
   const [isStarted, setIsStarted] = useState(false);
   const [isGreen, setIsGreen] = useState(false);
-  const [backgroundImage, setBackgroundImage] = useState("black");
+  const [backgroundImage, setBackgroundImage] = useState("");
   const [greenTimestamp, setGreenTimestamp] = useState(null);
   const [trialCount, setTrialCount] = useState(0);
   const [reactionTimes, setReactionTimes] = useState([]);
@@ -35,14 +35,13 @@ export function SpeedGame({ userName }) {
 
   // Called when the Start/Reset button is clicked.
   const handleStartReset = () => {
-    
-      // Start a new game.
-      setIsStarted(true);
-      setTrialCount(0);
-      setReactionTimes([]);
-      setFinalScore(null);
-      startTrial();
-    
+    // Start a new game.
+    console.log("handleStartReset fired");
+    setIsStarted(true);
+    setTrialCount(0);
+    setReactionTimes([]);
+    setFinalScore(null);
+    startTrial();
   };
 
   // Returns a random delay between 2000ms and 4000ms.
@@ -67,10 +66,28 @@ export function SpeedGame({ userName }) {
     setReactionTimes(newReactionTimes);
 
     if (newTrialCount >= 3) {
-      // If this is the third trial, compute the average reaction time.
+      // Compute the average reaction time.
       const sum = newReactionTimes.reduce((a, b) => a + b, 0);
       const avg = Math.round(sum / newReactionTimes.length);
       setFinalScore(avg);
+
+      // Save the score in localStorage.
+      const newScoreEntry = {
+        name: userName,
+        score: avg,
+        date: new Date().toLocaleDateString(),
+      };
+      const storedScores = localStorage.getItem("timeScores");
+      const scoresArray = storedScores ? JSON.parse(storedScores) : [];
+      scoresArray.push(newScoreEntry);
+      localStorage.setItem("timeScores", JSON.stringify(scoresArray));
+
+      // Update personal best if this score is better.
+      const prevBest = localStorage.getItem("personalBest");
+      if (!prevBest || avg < Number(prevBest)) {
+        localStorage.setItem("personalBest", avg);
+      }
+
       // End the game.
       setIsStarted(false);
       setIsGreen(false);
@@ -102,24 +119,14 @@ export function SpeedGame({ userName }) {
         className="btn btn-secondary btn-lg"
         onClick={handleStartReset}
         style={{ marginTop: "1rem", marginBottom: "1rem" }}
-        disabled={isStarted} // Add disabled attribute based on isStarted
+        disabled={isStarted}
       >
         Start
       </Button>
       <div
         className="screen"
-        style={{
-          width: "200px",
-          height: "200px",
-          backgroundColor: "black",
-          backgroundImage: backgroundImage,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          margin: "0 auto",
-          borderRadius: "10px",
-          marginBottom: "1rem",
-        }}
-      ></div>
+        style={backgroundImage ? { backgroundImage: backgroundImage } : {}}
+        ></div>
       {isStarted && (
         <Button
           className="btn custom-button btn-lg"
