@@ -29,7 +29,8 @@ export function Leaderboard({ userName }) {
           <td>{i + 1}</td>
           <td>{timeScore.name.split("@")[0]}</td>
           <td>{timeScore.score} ms</td>
-          <td>{timeScore.date}</td>
+          <td className="hide-on-small">{timeScore.date}</td>
+          <td>Temecula, CA</td>
         </tr>
       );
     }
@@ -64,7 +65,8 @@ export function Leaderboard({ userName }) {
             <th>#</th>
             <th>Name</th>
             <th>Time (ms)</th>
-            <th>Date</th>
+            <th className="hide-on-small">Date</th>
+            <th>Location</th>
           </tr>
         </thead>
         <tbody id="scores">{scoreRows}</tbody>

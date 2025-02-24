@@ -101,8 +101,9 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **All functionality implemented or mocked out** - I did not complete this part of the deliverable.
-- [ ] **Hooks** - I did not complete this part of the deliverable.
+- [x] **All functionality implemented or mocked out** - The game is playable and leaderboard updates with scores. Stubbed out 
+the websocket game notifications in toast messages on Play and api call in the locations on the leaderboard.
+- [x] **Hooks** - Used useState and useEffect in speedGame and elsewhere.
 
 ## 🚀 Service deliverable
 

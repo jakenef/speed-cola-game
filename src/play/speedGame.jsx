@@ -5,7 +5,7 @@ import { delay } from "./delay";
 export function SpeedGame({ userName }) {
   const [isStarted, setIsStarted] = useState(false);
   const [isGreen, setIsGreen] = useState(false);
-  const [backgroundImage, setBackgroundImage] = useState("");
+  const [backgroundImage, setBackgroundImage] = useState("black");
   const [greenTimestamp, setGreenTimestamp] = useState(null);
   const [trialCount, setTrialCount] = useState(0);
   const [reactionTimes, setReactionTimes] = useState([]);
@@ -36,7 +36,6 @@ export function SpeedGame({ userName }) {
   // Called when the Start/Reset button is clicked.
   const handleStartReset = () => {
     // Start a new game.
-    console.log("handleStartReset fired");
     setIsStarted(true);
     setTrialCount(0);
     setReactionTimes([]);
@@ -101,8 +100,8 @@ export function SpeedGame({ userName }) {
   return (
     <div>
       <div className="center-group">
-        <h1>When the screen says go, click the button!</h1>
-        <h5>Tip: Don't click too early, or you'll have to restart.</h5>
+        <h1>When the screen says go, click the React button!</h1>
+        <h5>Tip: Don't click too early, or you'll have to restart. This will take the average speed over three attempts.</h5>
         <div className="centered-row" id="score">
           <div className="players">
             Player:{" "}

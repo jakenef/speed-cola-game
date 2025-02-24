@@ -22,6 +22,7 @@ export function Players() {
         boxShadow: '0px 4px 10px rgba(0,0,0,0.1)',
         borderRadius: '10px',
         padding: '10px',
+        margin: '5px',
       },
       hideProgressBar: true,
     });
@@ -38,7 +39,7 @@ export function Players() {
   return (
     <div className="players">
       {/* Toast container with custom position */}
-      <ToastContainer autoClose={3000} className="mobile-toast-container" />
+      <ToastContainer autoClose={3000} limit={1} className="mobile-toast-container" />
     </div>
   );
 }
