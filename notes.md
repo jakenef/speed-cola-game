@@ -1,5 +1,7 @@
 # CS 260 Notes
 
+TODO: first load time is slow for screen images. afterwards, cached image files work fine. how to fix?
+
 [My startup](https://simon.cs260.click)
 
 ## Helpful links
