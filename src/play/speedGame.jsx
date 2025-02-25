@@ -101,7 +101,7 @@ export function SpeedGame({ userName }) {
     <div>
       <div className="center-group">
         <h1>When the screen says go, click the React button!</h1>
-        <h5>Tip: Don't click too early, or you'll have to restart. This will take the average speed over three attempts.</h5>
+        <h5>Tip: Don't click too early, or you'll have to restart. This will take your average speed over three attempts.</h5>
         <div className="centered-row" id="score">
           <div className="players">
             Player:{" "}
