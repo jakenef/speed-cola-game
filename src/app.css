@@ -59,10 +59,11 @@ menu .nav-item {
 .custom-card {
   display: flex;
   flex: 0, 30px;
-  background-color: #1a5c15 !important; /* Custom blue */
-  color: white !important; /* Text color for contrast */
-  border-width: thick;
-  border-color: #3db531;
+  background-color:#1a5c15;
+  color: white;
+  box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+  border-width: thin;
+  border-color:#3db531;
 }
 
 .custom-card .card-title {
@@ -88,6 +89,11 @@ footer {
 
 .custom-button {
   background-color: #1a5c15 !important; /* Custom green */
+  color: white !important; /* Text color for contrast */
+}
+
+.custom-button:hover{
+  background-color: #113e0b !important; /* Custom green */
   color: white !important; /* Text color for contrast */
   border-color: #3db531 !important; /* Custom green */
 }
