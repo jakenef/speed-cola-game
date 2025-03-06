@@ -38,6 +38,64 @@ apiRouter.post('/auth/login', async (req, res) => {
   res.status(401).send({ msg: 'Unauthorized' });
 });
 
+apiRouter.delete('/auth/logout', async (req, res) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  if (user){
+    delete user.token;
+  }
+  res.clearCookie(authCookieName);
+  res.status(204).end();
+})
+
+//Middleware to verify if user is auth to an endpoint
+const verifyAuth = async (req, res, next) => {
+  const user = await findUser('token', req.cookies[authCookieName]);
+  if (user) {
+    next();
+  } else {
+    res.status(401).send({ msg: 'Unauthorized'});
+  }
+};
+
+apiRouter.get('/scores', verifyAuth, (_req, res) => {
+  res.send(scores);
+});
+
+apiRouter.post('/score', verifyAuth, (req, res) => {
+  scores = updateScores(req.body);
+  res.send(scores);
+})
+
+app.use(function (err, req, res, next) {
+  res.status(500).send({ type: err.name, message: err.message })
+});
+
+app.use((_req, res) => {
+  res.sendFile('index.html', {root: 'public'});
+});
+
+//updates and checks for inclusion in the leaderboard
+function updateScores(newScoreBody) {
+  let found = false;
+  for (const [i, prevScore] of scores.entries()){
+    if(newScoreBody.score < prevScore.score) {
+      scores.splice(i, 0, newScoreBody);
+      found = true;
+      break;
+    }
+  }
+
+  if (!found){
+    scores.push(newScoreBody);
+  }
+
+  if (scores.length > 10) {
+    scores.length = 10;
+  }
+
+  return scores;
+}
+
 async function findUser(field, value) {
   if (!value) return null;
 
