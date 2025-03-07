@@ -6,13 +6,14 @@ const uuid = require('uuid');
 
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 const authCookieName = 'token';
-
-let users = {};
+let users = [];
 let scores = [];
 
 app.use(express.json());
+app.use(cookieParser());
 let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
+app.use(express.static('public'));
 
 apiRouter.post('/auth/create', async (req, res) => {
   if(await findUser('email', req.body.email)){
@@ -62,6 +63,7 @@ apiRouter.get('/scores', verifyAuth, (_req, res) => {
 });
 
 apiRouter.post('/score', verifyAuth, (req, res) => {
+  const userIP = req.headers['x-forwarded-for'] || req.socket.remoteAddress; // for the IP location API eventually
   scores = updateScores(req.body);
   res.send(scores);
 })
