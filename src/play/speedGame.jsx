@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { delay } from "./delay";
+import { GameNotifier } from "./gameNotifier";
 
 export function SpeedGame({ userName }) {
   const [isStarted, setIsStarted] = useState(false);
@@ -48,6 +49,18 @@ export function SpeedGame({ userName }) {
     return Math.floor(Math.random() * 2000) + 2000;
   };
 
+  async function saveScore(score) {
+    const date = new Date().toLocaleDateString();
+    const newScore = { name: userName, score: score, date: date };
+
+    await fetch('api/score', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(newScore),
+    });
+    GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
+  }
+
   // Called when the user clicks the "React!" button.
   const handleReaction = () => {
     // If clicked too early, alert and reset the game.
@@ -70,22 +83,7 @@ export function SpeedGame({ userName }) {
       const avg = Math.round(sum / newReactionTimes.length);
       setFinalScore(avg);
 
-      // Save the score in localStorage.
-      const newScoreEntry = {
-        name: userName,
-        score: avg,
-        date: new Date().toLocaleDateString(),
-      };
-      const storedScores = localStorage.getItem("timeScores");
-      const scoresArray = storedScores ? JSON.parse(storedScores) : [];
-      scoresArray.push(newScoreEntry);
-      localStorage.setItem("timeScores", JSON.stringify(scoresArray));
-
-      // Update personal best if this score is better.
-      const prevBest = localStorage.getItem("personalBest");
-      if (!prevBest || avg < Number(prevBest)) {
-        localStorage.setItem("personalBest", avg);
-      }
+      saveScore(avg);
 
       // End the game.
       setIsStarted(false);

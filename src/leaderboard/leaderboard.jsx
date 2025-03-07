@@ -11,10 +11,10 @@ export function Leaderboard({ userName }) {
         if (timeScoresRes) {
           timeScoresRes.sort((a, b) => a.score - b.score);
         }
-        setScores(timeScoresRes || []);
+        setTimeScores(timeScoresRes || []);
       });
     
-    fetch('api/personal-best/${userName}')
+    fetch(`api/personal-best/${userName}`)
       .then((res) => res.json())
       .then((data) => setPersonalBest(data.personalBest))
       .catch((error) => console.error("Error fetching personal best:", error));

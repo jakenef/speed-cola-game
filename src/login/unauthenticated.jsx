@@ -9,13 +9,29 @@ export function Unauthenticated(props) {
   const [displayError, setDisplayError] = React.useState(null);
 
   async function loginUser() {
-    localStorage.setItem("userName", userName);
-    props.onLogin(userName);
+    loginOrCreate(`/api/auth/login`);
   }
 
   async function createUser() {
-    localStorage.setItem("userName", userName);
-    props.onLogin(userName);
+    loginOrCreate(`/api/auth/create`);
+  }
+
+  async function loginOrCreate(endpoint) {
+    setDisplayError(null);
+    const response = await fetch(endpoint, {
+      method: 'post',
+      body: JSON.stringify({ email: userName, password: password }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    });
+    if (response?.status === 200) {
+      localStorage.setItem('userName', userName);
+      props.onLogin(userName);
+    } else {
+      const body = await response.json();
+      setDisplayError(`⚠ Error: ${body.msg}`);
+    }
   }
 
   return (
@@ -38,12 +54,15 @@ export function Unauthenticated(props) {
           <div className="input-group mb-3 w-75 mx-auto">
             <span className="input-group-text">🔒</span>
             <input
-              className="form-control"
+              className={'form-control ${displayError ? "input-error" : ""}'}
               type="password"
               onChange={(e) => setPassword(e.target.value)}
               placeholder="dont use password1"
             />
           </div>
+
+          {displayError && <p className="error-msg">{displayError}</p>}
+
           <Button
             variant="btn custom-button me-2"
             onClick={() => loginUser()}
@@ -60,11 +79,6 @@ export function Unauthenticated(props) {
           </Button>
         </form>
       </div>
-
-      <MessageDialog
-        message={displayError}
-        onHide={() => setDisplayError(null)}
-      />
     </>
   );
 }

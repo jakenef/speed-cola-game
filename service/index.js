@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cookieParser());
 let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
-app.use(express.static('public'));
+// app.use(express.static('public'));
 
 apiRouter.post('/auth/create', async (req, res) => {
   if(await findUser('email', req.body.email)){
