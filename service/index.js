@@ -62,6 +62,13 @@ apiRouter.get('/scores', verifyAuth, (_req, res) => {
   res.send(scores);
 });
 
+apiRouter.get('/personal-best/:email', verifyAuth, async (req, res) => {
+  const email = req.params.email;
+  const scores = await getUserScores(email);
+  const personalBest = Math.min(...scores.map(s => s.score));
+  res.json({ personalBest });
+})
+
 apiRouter.post('/score', verifyAuth, (req, res) => {
   const userIP = req.headers['x-forwarded-for'] || req.socket.remoteAddress; // for the IP location API eventually
   scores = updateScores(req.body);
@@ -96,6 +103,11 @@ function updateScores(newScoreBody) {
   }
 
   return scores;
+}
+
+function getUserScores(email){
+  if (!email) return [];
+  return scores.filter(s => s.email === email);
 }
 
 async function findUser(field, value) {

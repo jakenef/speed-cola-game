@@ -5,20 +5,19 @@ export function Leaderboard({ userName }) {
   const [personalBest, setPersonalBest] = React.useState("-- ms");
 
   React.useEffect(() => {
-    // Load scores from localStorage.
-    const timeScoresText = localStorage.getItem("timeScores");
-    if (timeScoresText) {
-      const scores = JSON.parse(timeScoresText);
-      scores.sort((a, b) => a.score - b.score);
-
-
-      setTimeScores(scores);
-    }
-    // Load personal best from localStorage.
-    const best = localStorage.getItem("personalBest");
-    if (best) {
-      setPersonalBest(best + " ms");
-    }
+    fetch('/api/scores')
+      .then((response) => response.json())
+      .then((timeScoresRes) => {
+        if (timeScoresRes) {
+          timeScoresRes.sort((a, b) => a.score - b.score);
+        }
+        setScores(timeScoresRes || []);
+      });
+    
+    fetch('api/personal-best/${userName}')
+      .then((res) => res.json())
+      .then((data) => setPersonalBest(data.personalBest))
+      .catch((error) => console.error("Error fetching personal best:", error));
   }, []);
 
   const scoreRows = [];
