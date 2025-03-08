@@ -52,7 +52,7 @@ export function Leaderboard({ userName }) {
         </div>
         <h3>Your personal best is:</h3>
         <div className="score-count">
-          <label htmlFor="score-count">{personalBest}</label>
+          <label htmlFor="score-count">{personalBest || "--"}{" ms"}</label>
         </div>
         <h3>
           Beat 300 ms to prove you have the Speed-Cola perk in real life!
