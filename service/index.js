@@ -1,4 +1,6 @@
 require("dotenv").config();
+console.log(process.env.IPSTACK_ACCESS_KEY);
+const ipAccessKey = process.env.IPSTACK_ACCESS_KEY;
 const express = require("express");
 const fetch = require("node-fetch");
 const app = express();
@@ -27,7 +29,7 @@ apiRouter.post("/auth/create", async (req, res) => {
     const user = await createUser(req.body.email, req.body.password, ip);
 
     setAuthCookie(res, user.token);
-    res.send({ email: user.email });
+    res.send({ email: user.email, ip: ip, location: user.location });
   }
 });
 
@@ -160,9 +162,12 @@ function setAuthCookie(res, authToken) {
 }
 
 async function getLocation(ip) {
-  const ipstackUrl = `http://api.ipstack.com/${ip}?access_key=${process.env.IPSTACK_ACCESS_KEY}`;
+  console.log("IP in getLocation: ", ip);
+
+  const ipstackUrl = `http://api.ipstack.com/${ip}?access_key=${ipAccessKey}`;
   const locationResponse = await fetch(ipstackUrl);
   const locationData = await locationResponse.json();
+  console.log(locationData);
   if (!locationData.city || !locationData.region_code) {
     return "Unknown";
   }

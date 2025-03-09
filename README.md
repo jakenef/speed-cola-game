@@ -109,11 +109,11 @@ the websocket game notifications in toast messages on Play and api call in the l
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [x] **Node.js/Express HTTP service** - I did not complete this part of the deliverable.
-- [ ] **Static middleware for frontend** - I did not complete this part of the deliverable.
-- [ ] **Calls to third party endpoints** - I did not complete this part of the deliverable.
-- [ ] **Backend service endpoints** - I did not complete this part of the deliverable.
-- [ ] **Frontend calls service endpoints** - I did not complete this part of the deliverable.
+- [x] **Node.js/Express HTTP service** - done!
+- [x] **Static middleware for frontend** - done!
+- [x] **Calls to third party endpoints** - The backend in index.js, getLocation calls node-fetch on a third party api.
+- [x] **Backend service endpoints** - I implemented all the necessary endpoints.
+- [x] **Frontend calls service endpoints** - The frontend makes use of each of the endpoints.
 
 ## 🚀 DB/Login deliverable
 
