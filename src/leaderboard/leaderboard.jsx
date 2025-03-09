@@ -29,7 +29,7 @@ export function Leaderboard({ userName }) {
           <td>{timeScore.name.split("@")[0]}</td>
           <td>{timeScore.score} ms</td>
           <td className="hide-on-small">{timeScore.date}</td>
-          <td>Temecula, CA</td>
+          <td>{timeScore.location}</td>
         </tr>
       );
     }

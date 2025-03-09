@@ -90,6 +90,7 @@ footer {
 .custom-button {
   background-color: #1a5c15 !important; /* Custom green */
   color: white !important; /* Text color for contrast */
+  border-color:#1a5c15
 }
 
 .custom-button:hover{
