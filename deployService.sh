@@ -24,7 +24,6 @@ npm run build # build the React front end
 cp -rf dist build/public # move the React front end to the target distribution
 cp service/*.js build # move the back end service to the target distribution
 cp service/*.json build
-cp .env build
 
 # Step 2
 printf "\n----> Clearing out previous distribution on the target\n"
@@ -35,7 +34,7 @@ ENDSSH
 
 # Step 3
 printf "\n----> Copy the distribution package to the target\n"
-scp -r -i "$key" build/* build/.env ubuntu@$hostname:services/$service
+scp -r -i "$key" build/* ubuntu@$hostname:services/$service
 
 # Step 4
 printf "\n----> Deploy the service on the target\n"
@@ -43,7 +42,7 @@ ssh -i "$key" ubuntu@$hostname << ENDSSH
 bash -i
 cd services/${service}
 npm install
-pm2 restart ${service} --update-env
+pm2 restart ${service}
 ENDSSH
 
 # Step 5

@@ -1,6 +1,5 @@
 require("dotenv").config();
-console.log(process.env.IPSTACK_ACCESS_KEY);
-const ipAccessKey = process.env.IPSTACK_ACCESS_KEY;
+const config = require('./dbConfig.json');
 const express = require("express");
 const fetch = require("node-fetch");
 const app = express();
@@ -164,7 +163,7 @@ function setAuthCookie(res, authToken) {
 async function getLocation(ip) {
   console.log("IP in getLocation: ", ip);
 
-  const ipstackUrl = `http://api.ipstack.com/${ip}?access_key=${ipAccessKey}`;
+  const ipstackUrl = `http://api.ipstack.com/${ip}?access_key=${config.ipWebAPIkey}`;
   const locationResponse = await fetch(ipstackUrl);
   const locationData = await locationResponse.json();
   console.log(locationData);
