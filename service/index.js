@@ -39,7 +39,7 @@ apiRouter.post("/auth/login", async (req, res) => {
       const ip = req.headers["x-forwarded-for"]
         ? req.headers["x-forwarded-for"].split(",")[0].trim()
         : req.ip;
-      user.location = getLocation(ip);
+      user.location = await getLocation(ip);
       await DB.updateUser(user);
 
       setAuthCookie(res, user.token);
@@ -146,7 +146,7 @@ async function getLocation(ip) {
   const ipstackUrl = `http://api.ipstack.com/${ip}?access_key=${config.ipWebAPIkey}`;
   const locationResponse = await fetch(ipstackUrl);
   const locationData = await locationResponse.json();
-  if (!locationData.city || !locationData.region_code) {
+  if (!locationData.city || !locationData.region_code || !locationData) {
     return "Unknown";
   }
   return `${locationData.city}, ${locationData.region_code}`;
