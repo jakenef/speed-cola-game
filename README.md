@@ -119,11 +119,11 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 For this deliverable I did the following. I checked the box `[x]` and added a description for things I completed.
 
-- [ ] **User registration** - I did not complete this part of the deliverable.
-- [ ] **User login and logout** - I did not complete this part of the deliverable.
-- [ ] **Stores data in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Stores credentials in MongoDB** - I did not complete this part of the deliverable.
-- [ ] **Restricts functionality based on authentication** - I did not complete this part of the deliverable.
+- [x] **User registration** - Users can create new accounts with an email or just a username
+- [x] **User login and logout** - Users who login are given a cookie which is saved correctly and when they logout it is deleted
+- [x] **Stores data in MongoDB** - Score and user data persists in the MongoDB database
+- [x] **Stores credentials in MongoDB** - Password and username are stored in database, passwords hashed w bcrypt
+- [x] **Restricts functionality based on authentication** - Going to play or leaderboard without being logged in does not work
 
 ## 🚀 WebSocket deliverable
 
