@@ -42,13 +42,13 @@ export function Unauthenticated(props) {
         </h2>
         <form style={{ marginTop: "2rem" }}>
           <div className="input-group mb-3 w-75 mx-auto">
-            <span className="input-group-text">@</span>
+            <span className="input-group-text">👤</span>
             <input
               className="form-control"
               type="text"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              placeholder="speed@cola.com"
+              placeholder="username/email"
             />
           </div>
           <div className="input-group mb-3 w-75 mx-auto">

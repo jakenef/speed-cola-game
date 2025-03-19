@@ -93,6 +93,12 @@ footer {
   border-color:#1a5c15
 }
 
+.custom-button:disabled {
+  background-color: #1a5c15 !important; /* Custom green */
+  color: white !important; /* Text color for contrast */
+  border-color:#1a5c15
+}
+
 .custom-button:hover{
   background-color: #113e0b !important; /* Custom green */
   color: white !important; /* Text color for contrast */
