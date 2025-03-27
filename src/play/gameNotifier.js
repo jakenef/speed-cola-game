@@ -36,7 +36,6 @@ const GameEvent = {
     }
   
     removeHandler(handler) {
-      // Ensure handlers are actually removed from the array
       this.handlers = this.handlers.filter((h) => h !== handler);
     }
   
@@ -48,7 +47,7 @@ const GameEvent = {
       });
     }
   }
-  
+
   
   const GameNotifier = new GameEventNotifier();
   export { GameEvent, GameNotifier };
