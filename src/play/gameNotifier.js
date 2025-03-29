@@ -40,7 +40,7 @@ class GameEventNotifier {
 
   broadcastEvent(from, type, value) {
     const event = new EventMessage(from, type, value);
-    this.receiveEvent(event);
+    this.socket.send(JSON.stringify(event));
   }
 
   addHandler(handler) {

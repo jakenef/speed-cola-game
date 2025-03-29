@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import { delay } from "./delay";
-import { GameNotifier } from "./gameNotifier";
+import { GameEvent, GameNotifier } from "./gameNotifier";
 
 export function SpeedGame({ userName }) {
   const [isStarted, setIsStarted] = useState(false);

@@ -7,15 +7,17 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid");
 const DB = require("./database.js");
+const { peerProxy } = require('./peerProxy.js');
+
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 const authCookieName = "token";
 
+app.use(express.static("public"));
 app.use(express.json());
 app.use(cookieParser());
 let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
-app.use(express.static("public"));
 
 apiRouter.post("/auth/create", async (req, res) => {
   if (await findUser("email", req.body.email)) {
@@ -152,6 +154,8 @@ async function getLocation(ip) {
   return `${locationData.city}, ${locationData.region_code}`;
 }
 
-app.listen(port, () => {
+const httpService = app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+peerProxy(httpService);
