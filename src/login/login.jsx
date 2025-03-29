@@ -14,7 +14,7 @@ export function Login({ userName, authState, onAuthChange }) {
             >
               <div className="card-body">
                 <h5 className="card-title fs-1">
-                  Welcome to the Speed-Cola Click Test!
+                  Welcome to The Speed-Cola Game!
                 </h5>
               </div>
             </div>

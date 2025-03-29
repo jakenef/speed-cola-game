@@ -26,7 +26,7 @@ export default function App() {
             <div className="container-fluid">
               <div className="navbar-brand">
                 <img src="speedcolaCropped.png" width="30"></img> The Speed-Cola
-                Click Test
+                Game
               </div>
               <button
                 className="navbar-toggler"

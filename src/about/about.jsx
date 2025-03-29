@@ -8,7 +8,7 @@ export function About() {
       </div>
 
       <p>
-        Fuel your reflexes with the <b>Speed Cola Click Test</b>, the ultimate
+        Fuel your reflexes with <b>The Speed Cola Game</b>, the ultimate
         reaction-speed challenge! Inspired by the iconic perk from{" "}
         <i>Call of Duty: Black Ops Zombies</i>{" "}
         that speeds up the player, this website will put your reflexes to the
