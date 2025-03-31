@@ -8,6 +8,7 @@ import { Play } from "./play/play";
 import { Leaderboard } from "./leaderboard/leaderboard";
 import { About } from "./about/about";
 import { AuthState } from "./login/authState";
+import ProtectedRoute from "./protectedRoute";
 
 export default function App() {
   const [userName, setUserName] = React.useState(
@@ -86,10 +87,21 @@ export default function App() {
             }
             exact
           />
-          <Route path="/play" element={<Play userName={userName} />} />
+          <Route
+            path="/play"
+            element={
+              <ProtectedRoute>
+                <Play userName={userName} />
+              </ProtectedRoute>
+            }
+          />
           <Route
             path="/leaderboard"
-            element={<Leaderboard userName={userName} />}
+            element={
+              <ProtectedRoute>
+                <Leaderboard userName={userName} />
+              </ProtectedRoute>
+            }
           />
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
