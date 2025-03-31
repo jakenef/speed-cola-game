@@ -53,9 +53,9 @@ export function SpeedGame({ userName }) {
     const date = new Date().toLocaleDateString();
     const newScore = { name: userName, score: score, date: date };
 
-    await fetch('api/score', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
+    await fetch("api/score", {
+      method: "POST",
+      headers: { "content-type": "application/json" },
       body: JSON.stringify(newScore),
     });
     GameNotifier.broadcastEvent(userName, GameEvent.End, newScore);
@@ -88,7 +88,7 @@ export function SpeedGame({ userName }) {
       // End the game.
       setIsStarted(false);
       setIsGreen(false);
-      setBackgroundImage("url('/gameOverCropped.jpg')");
+      setBackgroundImage("url('/gameOverWhite.png')");
     } else {
       // Otherwise, start the next trial.
       startTrial();
@@ -98,12 +98,17 @@ export function SpeedGame({ userName }) {
   return (
     <div>
       <div className="center-group">
-        <h1>This is a reaction-speed game. When the screen says go, click the React button!</h1>
-        <h5>Tip: Don't click too early, or you'll have to restart. This will take your average reaction time (in milliseconds) over three attempts.</h5>
+        <h1>
+          This is a reaction-speed game. When the screen says go, click the
+          React button!
+        </h1>
+        <h5>
+          Tip: Don't click too early, or you'll have to restart. This will take
+          your average reaction time (in milliseconds) over three attempts.
+        </h5>
         <div className="centered-row" id="score">
           <div className="players">
-            Player:{" "}
-            <span className="player-name">{userName}</span>
+            Player: <span className="player-name">{userName}</span>
           </div>
           <div className="score-count">
             <label htmlFor="score-count">
@@ -112,23 +117,24 @@ export function SpeedGame({ userName }) {
           </div>
         </div>
       </div>
-      <Button
-        className="btn btn-secondary btn-lg"
-        onClick={handleStartReset}
-        style={{ marginTop: "1rem", marginBottom: "1rem" }}
-        disabled={isStarted}
-      >
-        Start
-      </Button>
       <div
         className="screen"
         style={backgroundImage ? { backgroundImage: backgroundImage } : {}}
-        ></div>
+      ></div>
+      {!isStarted && (
+        <Button
+          className="btn btn-secondary btn-lg"
+          onClick={handleStartReset}
+          style={{ marginTop: "1rem", marginBottom: "1rem" }}
+        >
+          Start
+        </Button>
+      )}
       {isStarted && (
         <Button
           className="btn custom-button btn-lg"
           onClick={handleReaction}
-          style={{ marginBottom: "1rem" }}
+          style={{ marginTop: "1rem", marginBottom: "1rem" }}
         >
           React!
         </Button>

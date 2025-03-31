@@ -1,9 +1,8 @@
 # CS 260 Notes
 
 TODO: emails exposed?
--fix email/username not the same bug
 -fix leaderboard css
--fix game over screen to be better styled
+-only one high score for each player on leaderboard?
 -fix start/react button should be the same
 -no bad words
 
