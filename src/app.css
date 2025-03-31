@@ -105,6 +105,10 @@ footer {
   border-color: #3db531 !important; /* Custom green */
 }
 
+.not-too-wide {
+  max-width: 1000px;
+}
+
 @media (max-height: 400px) {
   header {
     display: none;

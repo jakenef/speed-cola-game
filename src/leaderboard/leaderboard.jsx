@@ -54,18 +54,18 @@ export function Leaderboard({ userName }) {
         <div className="score-count">
           <label htmlFor="score-count">{personalBest || "--"}{" ms"}</label>
         </div>
-        <h3>
+        <h3 style={{ marginTop: "1rem" }}>
           Beat 325 ms to prove you have the Speed-Cola perk in real life!
         </h3>
       </div>
-      <table className="table table-light table-striped-columns">
-        <thead className="table-light">
+      <table className="table table-dark table-borderless table-striped not-too-wide">
+        <thead className="table-dark table-borderless not-too-wide">
           <tr>
-            <th>#</th>
-            <th>Name</th>
-            <th>Time (ms)</th>
-            <th className="hide-on-small">Date</th>
-            <th>Location</th>
+            <th><i>#</i></th>
+            <th><i>Name</i></th>
+            <th><i>Time (ms)</i></th>
+            <th className="hide-on-small"><i>Date</i></th>
+            <th><i>Location</i></th>
           </tr>
         </thead>
         <tbody id="scores">{scoreRows}</tbody>

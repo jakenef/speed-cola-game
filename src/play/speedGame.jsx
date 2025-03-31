@@ -98,11 +98,11 @@ export function SpeedGame({ userName }) {
   return (
     <div>
       <div className="center-group">
-        <h1>
+        <h1 className="not-too-wide">
           This is a reaction-speed game. When the screen says go, click the
           React button!
         </h1>
-        <h5>
+        <h5 className="not-too-wide">
           Tip: Don't click too early, or you'll have to restart. This will take
           your average reaction time (in milliseconds) over three attempts.
         </h5>
@@ -125,7 +125,6 @@ export function SpeedGame({ userName }) {
         <Button
           className="btn btn-secondary btn-lg"
           onClick={handleStartReset}
-          style={{ marginTop: "1rem", marginBottom: "1rem" }}
         >
           Start
         </Button>
@@ -134,7 +133,6 @@ export function SpeedGame({ userName }) {
         <Button
           className="btn custom-button btn-lg"
           onClick={handleReaction}
-          style={{ marginTop: "1rem", marginBottom: "1rem" }}
         >
           React!
         </Button>

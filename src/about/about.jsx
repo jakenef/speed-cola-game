@@ -7,7 +7,7 @@ export function About() {
         <img width="200px" src="speedcolaCropped.png" alt="random" />
       </div>
 
-      <p>
+      <p className="not-too-wide">
         Fuel your reflexes with <b>The Speed Cola Game</b>, the ultimate
         reaction-speed challenge! Inspired by the iconic perk from{" "}
         <i>Call of Duty: Black Ops Zombies</i>{" "}

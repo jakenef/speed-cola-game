@@ -1,9 +1,7 @@
 # CS 260 Notes
 
-TODO: emails exposed?
--fix leaderboard css
+TODO:
 -only one high score for each player on leaderboard?
--fix start/react button should be the same
 -no bad words
 
 [My startup](https://simon.cs260.click)
