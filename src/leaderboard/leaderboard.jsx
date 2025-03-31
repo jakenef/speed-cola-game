@@ -26,7 +26,7 @@ export function Leaderboard({ userName }) {
       scoreRows.push(
         <tr key={i}>
           <td>{i + 1}</td>
-          <td>{timeScore.name.split("@")[0]}</td>
+          <td>{timeScore.name}</td>
           <td>{timeScore.score} ms</td>
           <td className="hide-on-small">{timeScore.date}</td>
           <td>{timeScore.location}</td>
@@ -47,7 +47,7 @@ export function Leaderboard({ userName }) {
         <div className="row justify-content-center">
           <div className="col-md-6 players">
             Player:{" "}
-            <span className="player-name">{userName?.split("@")[0]}</span>
+            <span className="player-name">{userName}</span>
           </div>
         </div>
         <h3>Your personal best is:</h3>

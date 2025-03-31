@@ -48,7 +48,7 @@ export function Unauthenticated(props) {
               type="text"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              placeholder="username/email"
+              placeholder="username"
             />
           </div>
           <div className="input-group mb-3 w-75 mx-auto">

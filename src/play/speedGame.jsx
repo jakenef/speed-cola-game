@@ -98,12 +98,12 @@ export function SpeedGame({ userName }) {
   return (
     <div>
       <div className="center-group">
-        <h1>When the screen says go, click the React button!</h1>
-        <h5>Tip: Don't click too early, or you'll have to restart. This will take your average speed over three attempts.</h5>
+        <h1>This is a reaction-speed game. When the screen says go, click the React button!</h1>
+        <h5>Tip: Don't click too early, or you'll have to restart. This will take your average reaction time (in milliseconds) over three attempts.</h5>
         <div className="centered-row" id="score">
           <div className="players">
             Player:{" "}
-            <span className="player-name">{userName?.split("@")[0]}</span>
+            <span className="player-name">{userName}</span>
           </div>
           <div className="score-count">
             <label htmlFor="score-count">

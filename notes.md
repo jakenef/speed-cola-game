@@ -1,11 +1,11 @@
 # CS 260 Notes
 
 TODO: emails exposed?
--fix play endpoint security
 -fix email/username not the same bug
 -fix leaderboard css
 -fix game over screen to be better styled
 -fix start/react button should be the same
+-no bad words
 
 [My startup](https://simon.cs260.click)
 
