@@ -2,6 +2,7 @@
 
 TODO:
 -only one high score for each player on leaderboard?
+-make it so you can go anywhere with jakenef.click
 
 [My startup](https://simon.cs260.click)
 
