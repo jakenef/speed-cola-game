@@ -3,6 +3,8 @@
 TODO:
 -only one high score for each player on leaderboard?
 -make it so you can go anywhere with jakenef.click
+-get a certain message for each time you play (eh... or wow! or speed demon!)
+-secure sending score endpoint
 
 [My startup](https://simon.cs260.click)
 
