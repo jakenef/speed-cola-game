@@ -20,7 +20,7 @@ export function Unauthenticated(props) {
     setDisplayError(null);
     const response = await fetch(endpoint, {
       method: 'post',
-      body: JSON.stringify({ email: userName, password: password }),
+      body: JSON.stringify({ name: userName, password: password }),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },

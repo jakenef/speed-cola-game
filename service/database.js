@@ -20,8 +20,8 @@ const scoreCollection = db.collection("score");
   }
 })();
 
-function getUser(email) {
-  return userCollection.findOne({ email: email });
+function getUser(name) {
+  return userCollection.findOne({ name: name });
 }
 
 function getUserByToken(token) {
@@ -33,7 +33,8 @@ async function addUser(user) {
 }
 
 async function updateUser(user) {
-  await userCollection.updateOne({ email: user.email }, { $set: user });
+  const { _id, ...userWithoutId } = user;
+  await userCollection.updateOne({ name: user.name }, { $set: userWithoutId });
 }
 
 async function addScore(score) {
@@ -49,18 +50,19 @@ async function getHighScores() {
   return highScores;
 }
 
-async function getPersonalBest(email) {
-  const scores = await getUserScores(email);
+async function getPersonalBest(name) {
+  const scores = await getUserScores(name);
   let personalBest = null;
   if (scores && scores.length > 0) {
     personalBest = Math.min(...scores.map((s) => s.score));
   }
+
   return personalBest;
 }
 
-async function getUserScores(email) {
-  if (!email) return [];
-  const userScores = await scoreCollection.find({ name: email }).toArray();
+async function getUserScores(name) {
+  if (!name) return [];
+  const userScores = await scoreCollection.find({ name: name }).toArray();
   return userScores;
 }
 

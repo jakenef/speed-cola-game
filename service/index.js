@@ -21,26 +21,26 @@ let apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
 apiRouter.post("/auth/create", async (req, res) => {
-  const username = req.body.email;
+  const username = req.body.name;
   if (badwordsRegex.test(username)) {
     return res.status(400).send({ msg: "Inappropriate username" });
   }
 
-  if (await findUser("email", req.body.email)) {
+  if (await findUser("name", req.body.name)) {
     res.status(409).send({ msg: "Existing user" });
   } else {
     const ip = req.headers["x-forwarded-for"]
       ? req.headers["x-forwarded-for"].split(",")[0].trim()
       : req.ip;
-    const user = await createUser(req.body.email, req.body.password, ip);
+    const user = await createUser(req.body.name, req.body.password, ip);
 
     setAuthCookie(res, user.token);
-    res.send({ email: user.email, ip: ip, location: user.location });
+    res.send({ name: user.name, ip: ip, location: user.location });
   }
 });
 
 apiRouter.post("/auth/login", async (req, res) => {
-  const user = await findUser("email", req.body.email);
+  const user = await findUser("name", req.body.name);
   if (user) {
     if (await bcrypt.compare(req.body.password, user.password)) {
       user.token = uuid.v4();
@@ -51,7 +51,7 @@ apiRouter.post("/auth/login", async (req, res) => {
       await DB.updateUser(user);
 
       setAuthCookie(res, user.token);
-      res.send({ email: user.email });
+      res.send({ name: user.name });
       return;
     }
   }
@@ -83,14 +83,14 @@ apiRouter.get("/scores", verifyAuth, async (_req, res) => {
   res.send(scores);
 });
 
-apiRouter.get("/personal-best/:email", verifyAuth, async (req, res) => {
-  const email = req.params.email;
-  const personalBest = await DB.getPersonalBest(email);
-  res.json({ personalBest });
+apiRouter.get("/personal-best/:name", verifyAuth, async (req, res) => {
+  const name = req.params.name;
+  const personalBest = await DB.getPersonalBest(name);
+  return res.json({ personalBest });
 });
 
 apiRouter.post("/score", verifyAuth, async (req, res) => {
-  const user = await findUser("email", req.body.email);
+  const user = await findUser("name", req.body.name);
   if (user) {
     req.body.location = user.location;
     await DB.updateUser(user);
@@ -99,7 +99,7 @@ apiRouter.post("/score", verifyAuth, async (req, res) => {
   }
 
   const scores = await updateScores(req.body);
-  res.send(scores);
+  res.send(req.body);
 });
 
 app.use(function (err, req, res, next) {
@@ -126,12 +126,12 @@ async function findUser(field, value) {
   return await DB.getUser(value);
 }
 
-async function createUser(email, password, ip) {
+async function createUser(name, password, ip) {
   const passwordHash = await bcrypt.hash(password, 10);
   const location = await getLocation(ip);
 
   const user = {
-    email: email,
+    name: name,
     password: passwordHash,
     token: uuid.v4(),
     location: location,

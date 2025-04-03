@@ -16,7 +16,17 @@ export function About() {
         the screen when it changes color and you will be given an average
         reaction time and a place in the global leaderboard. If you are fast
         enough, you can prove that you have the Speed Cola perk in real life!
-        This website is for educational purposes. Acknowledgements: Gray Wheeler (Graphic Design)
+        This website is for educational purposes.
+      </p>
+      <p>Acknowledgements: Gray Wheeler (Graphic Design)</p>
+      <p>
+        Other Sites:{" "}
+        <a
+          href="https://jacobnef.com"
+          style={{ color: "#3db531"}}
+        >
+          jacobnef.com
+        </a>
       </p>
     </main>
   );
