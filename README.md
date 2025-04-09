@@ -1,4 +1,4 @@
-# Speed Cola Click Test
+# The Speed Cola Game
 
 [My Notes](notes.md)
 
@@ -17,12 +17,19 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 
 ### Elevator pitch
 
-Fuel your reflexes with the Speed Cola Click Test, the ultimate reaction-speed challenge! Inspired by the iconic perk from Call of Duty: Black Ops Zombies that speeds up the player, this website will put your reflexes to the test and measure your reaction time. In three attempts, you will click the screen when it changes color and you will be given an average reaction time and a place in the global leaderboard. If you are fast enough, you can prove that you have the Speed Cola perk in real life!
+Fuel your reflexes with the Speed Cola Click Game, the ultimate reaction-speed challenge! Inspired by the iconic perk from Call of Duty: Black Ops Zombies that speeds up the player, this website will put your reflexes to the test and measure your reaction time. In three attempts, you will click the screen when it changes color and you will be given an average reaction time and a place in the global leaderboard. If you are fast enough, you can prove that you have the Speed Cola perk in real life!
 
-### Design
+### Design (Mockup & Actual Site)
 
 ![IMG_0969 (1) (1)](https://github.com/user-attachments/assets/7a989457-ad1e-4254-8efb-c1c3e7588006)
 
+<img width="1440" alt="Screenshot 2025-04-09 at 12 30 22 PM" src="https://github.com/user-attachments/assets/4839502a-e121-45bb-b65d-0b95bc251c28" />
+
+<img width="1440" alt="Screenshot 2025-04-09 at 12 31 06 PM" src="https://github.com/user-attachments/assets/4c185bc9-5b0f-42e4-a748-588579dd3bb3" />
+
+<img width="1440" alt="Screenshot 2025-04-09 at 12 31 17 PM" src="https://github.com/user-attachments/assets/81b2811a-5992-48a7-8a9e-1a063fe4784c" />
+
+<img width="1440" alt="Screenshot 2025-04-09 at 12 31 27 PM" src="https://github.com/user-attachments/assets/9325bde4-7924-4355-8aea-bba34ee58977" />
 
 Here is a diagram for how the backend will store scores and display them to the user.
 
