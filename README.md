@@ -23,7 +23,7 @@ Fuel your reflexes with the Speed Cola Click Game, the ultimate reaction-speed c
 
 ![IMG_0969 (1) (1)](https://github.com/user-attachments/assets/7a989457-ad1e-4254-8efb-c1c3e7588006)
 
-<img width="1440" alt="Screenshot 2025-04-09 at 12 30 22 PM" src="https://github.com/user-attachments/assets/4839502a-e121-45bb-b65d-0b95bc251c28" />
+<img width="1440" alt="Screenshot 2025-04-10 at 9 43 26 AM" src="https://github.com/user-attachments/assets/eba2376f-29d2-43dd-960b-7b66711eebda" />
 
 <img width="1440" alt="Screenshot 2025-04-09 at 12 31 06 PM" src="https://github.com/user-attachments/assets/4c185bc9-5b0f-42e4-a748-588579dd3bb3" />
 
