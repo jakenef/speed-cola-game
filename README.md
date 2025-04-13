@@ -1,6 +1,6 @@
 # The Speed Cola Game
 
-[My Notes](notes.md)
+[See it here](https://jakenef.click)
 
 In the popular Call of Duty: Black Ops franchise, players can drink "Speed-Cola" to increase their speed. This application will test users' reaction times in a game where they must click the screen as soon as it changes colors. The user will repeat the game three times to get an average reaction time at which point they can add their score to the global leaderboard if signed in. If they are fast enough, they will be given a message saying they have the Speed Cola perk!
 
@@ -141,3 +141,5 @@ For this deliverable I did the following. I checked the box `[x]` and added a de
 - [x] **Data sent over WebSocket connection** - scores are sent over WS.
 - [x] **WebSocket data displayed** - comes in as a little notification toast message!
 - [x] **Application is fully functional** - app works as designed to!
+
+[My Notes](notes.md)
