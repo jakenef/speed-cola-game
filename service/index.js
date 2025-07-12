@@ -90,7 +90,8 @@ apiRouter.get("/personal-best/:name", verifyAuth, async (req, res) => {
 });
 
 apiRouter.post("/score", verifyAuth, async (req, res) => {
-  const user = await findUser("name", req.body.name);
+  try {
+    const user = await findUser("name", req.body.name);
   if (user) {
     req.body.location = user.location;
     await DB.updateUser(user);
@@ -100,6 +101,12 @@ apiRouter.post("/score", verifyAuth, async (req, res) => {
 
   const scores = await updateScores(req.body);
   res.send(req.body);
+  } catch (err) {
+    console.error("/api/score error:", err.message);
+    // validation error → 400, everything else → 500
+    const status = err.message.includes("Score must be") ? 400 : 500;
+    res.status(status).json({ error: err.message });
+  }
 });
 
 app.use(function (err, req, res, next) {
@@ -112,6 +119,9 @@ app.use((_req, res) => {
 
 //updates and checks for inclusion in the leaderboard
 async function updateScores(newScoreBody) {
+  if (!newScoreBody.score || newScoreBody.score <= 0) {
+    throw new Error("Score must be greater than 0");
+  }
   await DB.addScore(newScoreBody);
   const highScores = await DB.getHighScores();
   return highScores;
