@@ -1,5 +1,27 @@
 import React from "react";
 
+// Format date consistently as MM/D/YYYY
+function formatDate(dateString) {
+  if (!dateString) return "Unknown";
+  
+  // Handle both YYYY-MM-DD (new format) and MM/D/YYYY (old format)
+  let date;
+  if (dateString.includes('-')) {
+    // New format: YYYY-MM-DD
+    date = new Date(dateString);
+  } else {
+    // Old format: MM/D/YYYY - already in desired format
+    return dateString;
+  }
+  
+  // Convert to MM/D/YYYY format
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const year = date.getFullYear();
+  
+  return `${month}/${day}/${year}`;
+}
+
 export function Leaderboard({ userName }) {
   const [timeScores, setTimeScores] = React.useState([]);
   const [personalBest, setPersonalBest] = React.useState("-- ms");
@@ -28,7 +50,7 @@ export function Leaderboard({ userName }) {
           <td>{i + 1}</td>
           <td>{timeScore.name}</td>
           <td>{timeScore.score} ms</td>
-          <td className="hide-on-small">{timeScore.date}</td>
+          <td className="hide-on-small">{formatDate(timeScore.date)}</td>
           <td>{timeScore.location}</td>
         </tr>
       );

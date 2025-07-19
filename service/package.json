@@ -4,7 +4,8 @@
   "description": "This demonstrates a service for a web application.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "test": "node test-endpoints.js"
   },
   "author": "",
   "license": "MIT",
