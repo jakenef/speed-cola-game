@@ -7,9 +7,8 @@ const cookieParser = require("cookie-parser");
 const bcrypt = require("bcryptjs");
 const uuid = require("uuid");
 const DB = require("./database.js");
-const { peerProxy } = require('./peerProxy.js');
-const badwordsRegex = require('badwords/regexp');
-
+const { peerProxy } = require("./peerProxy.js");
+const badwordsRegex = require("badwords/regexp");
 
 const port = process.argv.length > 2 ? process.argv[2] : 4000;
 const authCookieName = "token";
@@ -72,6 +71,7 @@ apiRouter.delete("/auth/logout", async (req, res) => {
 const verifyAuth = async (req, res, next) => {
   const user = await findUser("token", req.cookies[authCookieName]);
   if (user) {
+    req.user = user;
     next();
   } else {
     res.status(401).send({ msg: "Unauthorized" });
@@ -91,16 +91,13 @@ apiRouter.get("/personal-best/:name", verifyAuth, async (req, res) => {
 
 apiRouter.post("/score", verifyAuth, async (req, res) => {
   try {
-    const user = await findUser("name", req.body.name);
-  if (user) {
+    const user = req.user;
     req.body.location = user.location;
+    req.body.name = user.name;
     await DB.updateUser(user);
-  } else {
-    return res.status(404).send({ msg: "User not found" });
-  }
 
-  const scores = await updateScores(req.body);
-  res.send(req.body);
+    const scores = await updateScores(req.body);
+    res.send(req.body);
   } catch (err) {
     console.error("/api/score error:", err.message);
     // validation error → 400, everything else → 500
